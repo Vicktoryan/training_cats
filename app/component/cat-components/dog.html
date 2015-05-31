@@ -1,0 +1,9 @@
+<div>
+<show-scope-change name-scope="Dog"></show-scope-change>
+<h3 ng-show="(count > maxCountCat)">I want {{cats.length - maxCountCat}} cats</h3>
+<h3 ng-hide="(count > maxCountCat)">I'm satisfied</h3>
+	<img src="{{count > maxCountCat ? 'app/component/cat-components/img/bad_dog.jpg' : 'app/component/cat-components/img/good_dog.jpg'}}" class="full-img" />
+	<div ng-show="cat">
+	You click <b>{{cat.name}} - {{cat.countClick}}</b>
+	</div>
+</div>

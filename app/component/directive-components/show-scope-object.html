@@ -1,0 +1,12 @@
+<div class="show-scope-object" ng-show="showDirective">
+	<h6>Directive - show objects in scope</h6>
+	<h4>{{nameScope}}</h4>
+	<div ng-repeat="newObject in newObjectsScope">
+		<span ng-if="!newObject.isParent"><font color="gray"><b>{{newObject.name}}</b> - {{newObject.type}}</font></span>
+		<span ng-if="newObject.isParent"><font color="black"><big><ins><b>^ {{newObject.name}}</b> - {{newObject.type}}</ins></big></font></span>
+	</div>
+</div>
+
+
+
+

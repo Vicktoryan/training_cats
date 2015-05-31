@@ -1,0 +1,18 @@
+<div class="row well">
+	<div class="col-md-3">
+		<show-scope-change name-scope="Cats"></show-scope-change>
+		<label>Max count click</label>
+		<input type="text" ng-model="maxCountCatClick" />
+		<h4 ng-show="catImg && count > 0"><small>Cat name: </small>{{catName}}</h4>
+		<img ng-show="catImg && count > 0" ng-src="{{catImg}}" class="full-img" />
+		<h3><small>Life cats: </small>{{count = (cats | showCatsFilter:maxCountCatClick).length}}</h3>
+
+		<dog></dog>
+	</div>
+
+	<div class="col-md-9">
+	<!-- Sorry, this is not place derective CAT, but you looking scope objects -->
+		<cat></cat>
+	</div>
+</div>
+
