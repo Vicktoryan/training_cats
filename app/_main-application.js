@@ -13,7 +13,7 @@ angular.module('main-application', [
 .constant('MAX_COUNT_CLICK_CAT', 5)
 
 .value('_rootScopeArray', [])
-.value('_showScopeObjects', true)
+.value('_showScopeObjects', false)
 .constant('CREATE_SCOPE_OBJECT', true)
 .run(function($rootScope, _rootScopeArray, _showScopeObjects){
 	$rootScope.showScopeObjects = _showScopeObjects;

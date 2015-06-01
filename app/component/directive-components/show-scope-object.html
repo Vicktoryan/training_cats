@@ -1,5 +1,5 @@
-<div>
-	<div class="show-scope-object" ng-show="showDirective">
+<div >
+	<div class="well show-scope-object" ng-show="showDirective" ng-if="createShowDerective">
 		<h6>Directive - show objects in scope</h6>
 		<h4>{{nameScope}}</h4>
 		<div ng-repeat="newObject in newObjectsScope">
@@ -11,6 +11,22 @@
 	<div ng-transclude></div>
 </div>
 
+<style>
+	.show-scope-object{
+		width: 200px;
+		border-radius: 5px;
+		border: 1px solid #333;
+		padding: 0px 5px 10px 10px;
+		background-color: #efe;
+		margin: 5px;
+	}
 
+	.show-scope-object h4 {
+		border: 1px solid #bbb;
+		border-radius: 5px;
+		padding: 5px;
+		background-color: #fff;
+	}
+</style>
 
 

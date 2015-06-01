@@ -1,5 +1,4 @@
-<div class="cat-scope">
-<show-scope-change name-scope="Cat"></show-scope-change>
+<div class="cat-scope" show-scope-change="Cat">
 {{maxCountCats}}
 	<div class="media" ng-repeat="cat in (cats | showCatsFilter:maxCountCatClick:getCountCat)">
 	  <div class="media-left media-top">

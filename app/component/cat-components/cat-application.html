@@ -1,18 +1,52 @@
-<div class="row well">
+<div class="row well" show-scope-change="Cat app">
 	<div class="col-md-3" >
 		<label>Max count click</label>
 		<input type="text" ng-model="maxCountCatClick" />
-		<h4 ng-show="catImg && count > 0"><small>Cat name: </small>{{catName}}</h4>
-		<img ng-show="catImg && count > 0" ng-src="{{catImg}}" class="full-img" />
+		<h4 ng-show="catImg && countCat > 0"><small>Cat name: </small>{{catName}}</h4>
+
+		<img ng-show="catImg && countCat > 0" ng-src="{{catImg}}" class="full-image" />
 		<h3><small>Life cats: </small>{{countCat = (cats | showCatsFilter:maxCountCatClick).length}}</h3>
 
 		<dog></dog>
 	</div>
 
 	<div class="col-md-9">
-		<show-scope-change name-scope="Cat app"></show-scope-change>
 	<!-- Sorry, this is not place derective CAT, but you looking scope objects -->
 		<cat></cat>
 	</div>
 </div>
 
+
+<style>
+	.full-image{
+		width: 200px;
+		border-radius: 5px;
+		border: 1px solid #bbb;
+	}
+	.cat-scope{
+		padding: 10px;
+		background-color: #fff;
+	}
+
+	.cat-scope img{
+		border-radius: 50%;
+		width: 150px;
+	}
+
+
+	.show-scope-object{
+		width: 200px;
+		border-radius: 5px;
+		border: 1px solid #333;
+		padding: 0px 5px 10px 10px;
+		background-color: #efe;
+		margin: 5px;
+	}
+
+	.show-scope-object h4 {
+		border: 1px solid #bbb;
+		border-radius: 5px;
+		padding: 5px;
+		background-color: #fff;
+	}
+</style>
