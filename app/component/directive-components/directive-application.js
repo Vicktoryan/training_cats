@@ -1,21 +1,21 @@
 angular.module('directive-application',[])
-.directive('showScopeChange', function($compile, $rootScope, _rootScopeArray, CREATE_SCOPE_OBJECT, _showScopeObjects){
+.directive('showScopeChange', function($compile, $rootScope, _rootScopeArray, CREATE_SCOPE_OBJECT){
     return {
         transclude: true,
         scope: true,
+        rectric: 'A',
         templateUrl: 'app/component/directive-components/show-scope-object.html',
         link: function($scope, iElm, attr){
-            $scope.createShowDerective = CREATE_SCOPE_OBJECT;
+            $scope.createDerective = CREATE_SCOPE_OBJECT;
             if (!CREATE_SCOPE_OBJECT) return;
 
             $scope.nameScope = attr.showScopeChange;
-
             $rootScope.$watch(function() {
                     return new Date().toTimeString();
                 }, function(newValue, oldValue, scope) {
                 $scope.showDirective = $rootScope.showScopeObjects;
             });
-
+                       
             $scope.$parent.$watch(
                 function() {
                     return new Date().toTimeString();
@@ -39,6 +39,8 @@ angular.module('directive-application',[])
                             $scope.countChangeName = 1;
                         }
 
+                        console.log(scope.$parent === $scope);
+
                         for(var objectName in scope){
                             var enableChange = false;
 
@@ -48,15 +50,17 @@ angular.module('directive-application',[])
                             if (enableChange === false){
                                 var typeOfChange = (typeof scope[objectName]);
                                 var isParent;
-                                if (!isRootScope)
-                                    for(var parentObjectName in scope.$parent)
-                                        if (parentObjectName === objectName && parentObjectName !== '$$transcluded') isParent = true;
-                                    
-                                    if (typeOfChange === 'string' || typeOfChange === 'number')
-                                        typeOfChange += ' (' + scope[objectName] +')';
+                                
+                                for(var parentObjectName in scope.$parent)
+                                    if (parentObjectName === objectName){ //} && parentObjectName !== '$$transcluded') {
+                                        isParent = true;
+                                    };
+                                
+                                if (typeOfChange === 'string' || typeOfChange === 'number')
+                                    typeOfChange += ' (' + scope[objectName] +')';
 
-                                    if (objectName !== '$$transcluded')
-                                        changed.push({name: objectName, type: typeOfChange, isParent: isParent});
+                                if (objectName !== '$$transcluded')
+                                    changed.push({name: objectName, type: typeOfChange, isParent: isParent});
                             }
                         }
                     }

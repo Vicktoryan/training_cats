@@ -4,6 +4,7 @@ angular.module('main-application', [
     'component.app-version',
     'directive-application',
     'cat-application',
+
     'main-application.templates',
     'api-application',
     'dog-application',
