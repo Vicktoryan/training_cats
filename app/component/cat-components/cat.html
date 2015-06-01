@@ -1,7 +1,7 @@
 <div class="cat-scope">
-	<show-scope-change name-scope="Cat"></show-scope-change>
+<show-scope-change name-scope="Cat"></show-scope-change>
 {{maxCountCats}}
-	<div class="media" ng-repeat="cat in count = (cats | showCatsFilter:maxCountCatClick:getCountCat)">
+	<div class="media" ng-repeat="cat in (cats | showCatsFilter:maxCountCatClick:getCountCat)">
 	  <div class="media-left media-top">
 	    <a href ng-click="clickedOnCat(cat);" ng-mouseover="showCats(cat.img, cat.name)">
 	      <img class="media-object" ng-src="{{cat.img}}" alt="I'm a hungry cat">
@@ -12,5 +12,5 @@
 	    Count click: {{cat.countClick ? cat.countClick : 0 }}
 	  </div>
 	</div>
-	<h3><small>Count cats:</small> {{count.length}}</h3>
+	<h3><small>Count cats:</small> {{countCat}}</h3>
 </div>

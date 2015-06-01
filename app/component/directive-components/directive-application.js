@@ -1,6 +1,7 @@
 angular.module('directive-application',[])
 .directive('showScopeChange', function($compile, $rootScope, _rootScopeArray, CREATE_SCOPE_OBJECT, _showScopeObjects){
     return {
+        transclude: true,
         scope: {
             nameScope: '@'
         },
@@ -62,21 +63,6 @@ angular.module('directive-application',[])
                         }
                     }
                     $scope.newObjectsScope = changed;
-
-                    //IMHO may be or not :)
-//                 var template = [
-// '<div class="show-scope-object">',
-//     '<h6>Directive - show objects in scope</h6>',
-//     '<h4>{{nameScope}}</h4>',
-//     '<div ng-repeat="newObject in newObjectsScope">',
-//         '<span ng-if="!newObject.isParent"><font color="gray"><b>{{newObject.name}}</b> - {{newObject.type}}</font></span>',
-//         '<span ng-if="newObject.isParent"><font color="black"><big><ins><b>^ {{newObject.name}}</b> - {{newObject.type}}</ins></big></font></span>',
-//     '</div>',
-// '</div>'
-
-//                 ].join();
-//                 var content = $compile(template)(scope);
-//                 iElm.append(content);
             });
         }
     };

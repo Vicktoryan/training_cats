@@ -29,6 +29,7 @@ angular.module('cat-application', [])
 		templateUrl: 'app/component/cat-components/cat.html',
 		link: function($scope, iElm, iAttrs, controller) {
 			$scope.clickedOnCat = function(cat){
+				console.log($scope.count);
 				cat.countClick = (typeof cat.countClick === 'undefined') ? 1 : cat.countClick + 1;
 				$scope.$emit('youClickedCat', cat);
 			};
