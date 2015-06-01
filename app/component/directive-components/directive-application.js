@@ -15,7 +15,7 @@ angular.module('directive-application',[])
                 }, function(newValue, oldValue, scope) {
                 $scope.showDirective = $rootScope.showScopeObjects;
             });
-                       
+
             $scope.$parent.$watch(
                 function() {
                     return new Date().toTimeString();
@@ -39,8 +39,6 @@ angular.module('directive-application',[])
                             $scope.countChangeName = 1;
                         }
 
-                        console.log(scope.$parent === $scope);
-
                         for(var objectName in scope){
                             var enableChange = false;
 
@@ -50,12 +48,12 @@ angular.module('directive-application',[])
                             if (enableChange === false){
                                 var typeOfChange = (typeof scope[objectName]);
                                 var isParent;
-                                
+
                                 for(var parentObjectName in scope.$parent)
                                     if (parentObjectName === objectName){ //} && parentObjectName !== '$$transcluded') {
                                         isParent = true;
                                     };
-                                
+
                                 if (typeOfChange === 'string' || typeOfChange === 'number')
                                     typeOfChange += ' (' + scope[objectName] +')';
 
